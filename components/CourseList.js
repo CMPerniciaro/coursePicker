@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, ScrollView, View } from 'react-native';
-import Course from './Course';
 import TermSelector from './TermSelector';
+import CourseSelector from './CourseSelector';
 
 const termMap = { F: 'Fall', W: 'Winter', S: 'Spring'};
 const terms = Object.values(termMap);
@@ -19,7 +19,7 @@ const CourseList = ({courses}) => {
     <ScrollView >
       <TermSelector selectedTerm={selectedTerm} setSelectedTerm={setSelectedTerm} />
       <View style={styles.courseList}>
-      { termCourses.map(course => <Course key={course.id} course={course} />) }
+        <CourseSelector courses={termCourses} />
       </View>
       
     </ScrollView>

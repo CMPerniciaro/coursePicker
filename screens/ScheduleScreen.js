@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { SafeAreaView, StyleSheet, Text } from 'react-native';
 import CourseList from '../components/CourseList';
 import UserContext from '../UserContext';
-import CourseEditScreen from '../components/CourseEditScreen';
+import CourseEditScreen from '../screens/CourseEditScreen';
 import { firebase } from '../firebase';  
 
 const Banner = ({ title }) => (

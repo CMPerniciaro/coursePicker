@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { StyleSheet, ScrollView, View } from 'react-native';
 import TermSelector from './TermSelector';
 import CourseSelector from './CourseSelector';
-
-const termMap = { F: 'Fall', W: 'Winter', S: 'Spring'};
-const terms = Object.values(termMap);
+//import { getCourseTerm } from '../utils/course';
 
 const getCourseTerm = course => (
   termMap[course.id.charAt(0)]
 );
 
+const termMap = { F: 'Fall', W: 'Winter', S: 'Spring'};
+const terms = Object.values(termMap);
 
 const CourseList = ({courses, view}) => {
   const [selectedTerm, setSelectedTerm] = useState('Fall');

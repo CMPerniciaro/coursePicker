@@ -4,14 +4,14 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 import Form from '../components/Form';
 import { firebase } from '../firebase';
 
-const Field = ({label, value}) => {
-  return (
-    <View style={styles.fieldContainer}>
-      <Text style={styles.label}>{label}</Text>
-      <Text style={styles.field}>{value}</Text>
-    </View>
-  );
-};
+// const Field = ({label, value}) => {
+//   return (
+//     <View style={styles.fieldContainer}>
+//       <Text style={styles.label}>{label}</Text>
+//       <Text style={styles.field}>{value}</Text>
+//     </View>
+//   );
+// };
 const validationSchema = Yup.object().shape({
   id: Yup.string()
     .required()
@@ -26,7 +26,7 @@ const validationSchema = Yup.object().shape({
     .label('Title'),
 });
 
-const CourseEditScreen = ({route}) => {
+const CourseEditScreen = ({route, navigation}) => {
   const course = route.params.course;
   const [submitError, setSubmitError] = useState('');
 
@@ -73,7 +73,7 @@ const CourseEditScreen = ({route}) => {
         </Form>
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 };
 
 const styles = StyleSheet.create({

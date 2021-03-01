@@ -1,4 +1,4 @@
-import 'react-native-gesture-handler';
+//import 'react-native-gesture-handler';
 import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -13,9 +13,9 @@ import { firebase } from './firebase';
 const Stack = createStackNavigator();
 
 const App = () => {
-  const [user, setUser] = useState(null);
   const [auth, setAuth] = useState();
-
+  const [user, setUser] = useState(null);
+  
   useEffect(() => {
     if (auth && auth.uid) {
       const db = firebase.database().ref('users').child(auth.uid);
@@ -60,11 +60,12 @@ const App = () => {
             options={{ title: 'Course Editor'}} 
           />
           <Stack.Screen name="RegisterScreen"
-            component={RegisterScreen}/>
+            component={RegisterScreen}
+            />
         </Stack.Navigator>
       </NavigationContainer>
     </UserContext.Provider>
-  );
+  )
 };
 
 export default App;

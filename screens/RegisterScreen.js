@@ -4,21 +4,22 @@ import Form from '../components/Form';
 import * as Yup from 'yup';
 import { firebase } from '../firebase';
 
+const validationSchema = Yup.object().shape({
+  email: Yup.string()
+    .required('Please enter a valid email')
+    .email()
+    .label('Email'),
+  password: Yup.string()
+    .required()
+    .min(6, 'Password must have at least 6 characters')
+    .label('Password'),
+  confirm: Yup.string()
+    .oneOf([Yup.ref('password'), null], 'Confirmation password must match password'),
+});
+
 const RegisterScreen = ({ navigation }) => {
-    const [signInError, setSignInError] = useState('');
-   
-    const validationSchema = Yup.object().shape({
-        email: Yup.string()
-          .required('Please enter a valid email')
-          .email()
-          .label('Email'),
-        password: Yup.string()
-          .required()
-          .min(6, 'Password must have at least 6 characters')
-          .label('Password'),
-        confirm: Yup.string()
-          .oneOf([Yup.ref('password'), null], 'Confirmation password must match password'),
-      });
+  const [signInError, setSignInError] = useState('');
+
 
       async function handleOnLogin(values) {
         const { email, password } = values;

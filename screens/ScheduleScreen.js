@@ -2,8 +2,8 @@ import React, { useContext, useState, useEffect } from 'react';
 import { SafeAreaView, StyleSheet, Text } from 'react-native';
 import CourseList from '../components/CourseList';
 import UserContext from '../UserContext';
-import CourseEditScreen from '../screens/CourseEditScreen';
 import { firebase } from '../firebase';  
+import CourseEditScreen from '../screens/CourseEditScreen';
 
 const Banner = ({ title }) => (
   <Text style={styles.banner}>{ title || '[loading...]'}</Text>
@@ -17,7 +17,7 @@ const fixCourses = json => ({
 const ScheduleScreen = ({navigation}) => {
   const user = useContext(UserContext);
   const canEdit = user && user.role === 'admin';
-  const [schedule, setSchedule] = useState ({ title: '', courses: []});
+  const [schedule, setSchedule] = useState({ title: '', courses: []});
 
   const view = (course) => {
     navigation.navigate(canEdit ? 'CourseEditScreen' : 'CourseDetailScreen', { course });

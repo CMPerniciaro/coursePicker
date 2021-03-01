@@ -11,12 +11,15 @@ const TermButton = ({term, setSelectedTerm, isActive}) => (
   </TouchableOpacity>
 );
 
-const TermSelector = ({selectedTerm, setSelectedTerm}) => (
+const TermSelector = ({selectedTerm, setSelectedTerm, terms}) => (
   <View style={styles.termSelector}>
     { 
       terms.map(term => (
-        <TermButton key={term} term={term} setSelectedTerm={setSelectedTerm}
-        isActive={term === selectedTerm}
+        <TermButton 
+          key={term} 
+          term={term} 
+          setSelectedTerm={setSelectedTerm}
+          isActive={term === selectedTerm}
         />
       ))
     }

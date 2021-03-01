@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from 'react-native';
+import { firebase } from '../firebase';
 
 const SignInButton = ({ navigation, user }) => (
   user && user.uid
